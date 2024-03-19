@@ -1,21 +1,24 @@
 public class Kereta {
     private String namaKereta;
     private int jumlahTiket;
+    // objek tiket untuk menyimpan data penumpang
     private Ticket tiket;
     
-    
+    // konstruktor unutk kereta komuter 
     public Kereta(String komuter) {
         this.namaKereta = "komuter";
         this.jumlahTiket = 1000;
-        this.tiket = new Ticket();
+        this.tiket = new Ticket(); //menginisialisasi objek tiket
     }
 
+    // konstruktor untuk nama kereta dan jumlah tiket
     public Kereta(String namaKereta, int jumlahTiket) {
         this.namaKereta = namaKereta;
         this.jumlahTiket = jumlahTiket;
         this.tiket = new Ticket(namaKereta, jumlahTiket);
     }
-    
+
+    //method untuk menambah tiket
     public void tambahTiket(String namaPenumpang){
         String[] nama = new String[tiket.getNamaPenumpang().length + 1];
         System.arraycopy(tiket.getNamaPenumpang(), 0, nama, 0, tiket.getNamaPenumpang().length);
@@ -25,7 +28,8 @@ public class Kereta {
         System.out.println("=================================================");
         System.out.println("Tiket berhasil dipesan");     
      }
- 
+
+    //method untuk menamvah tiket beserta asal dan tujuan
      public void tambahTiket(String namaPenumpang, String asal, String tujuan) {
         if (tiket.getNamaPenumpang().length < jumlahTiket) {
             String[] newNama = new String[tiket.getNamaPenumpang().length + 1];
@@ -58,7 +62,8 @@ public class Kereta {
              System.out.println("kereta telah habis dipesan, silahkan cari jadwal keberangkatan lainnya"); 
          }       
      }
- 
+
+     // method untuk menampilkan daftar tiket    
      public void tampilkanTiket(){
          System.out.println("=================================================");
          System.out.println("Daftar penumpang kereta api " + this.namaKereta + ": ");
